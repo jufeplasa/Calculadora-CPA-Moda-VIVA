@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+:root {
+  --color-bg: #fdfbfb;
+  --color-surface: #ffffff;
+  --color-primary: #e7b5b3;       /* acento de marca (rosa empolvado) */
+  --color-primary-dark: #c98d8a;  /* hover/active de primary */
+  --color-primary-light: #f9ecec; /* fondos suaves, tarjetas de highlight */
+
+  --color-text: #1f1a1a;
+  --color-text-muted: #6b6363;
+
+  --color-success: #4caf82;       /* CPA breakeven saludable, margen positivo */
+  --color-success-light: #eaf7f1;
+  --color-danger: #d9534f;        /* margen negativo, alertas */
+  --color-danger-light: #fdf0f0;
+  --color-border: #ece4e4;
+}
+
+@theme {
+  --color-brand-default: #e7b5b3;
+  --color-brand-dark: #c98d8a;
+  --color-brand-light: #f9ecec;
+  --color-brand-accent: #d89694;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  min-height: 100vh;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+
+/* Custom range slider styling */
+input[type="range"] {
+  accent-color: var(--color-primary-dark);
+}
+
+/* Glassmorphism utility */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--color-border);
+}
+
+/* Card hover shadow */
+.hover-card-shadow {
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.hover-card-shadow:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px -10px rgba(201, 141, 138, 0.2);
+}
+
+/* Pulse animation for key badges */
+@keyframes softPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.9; transform: scale(1.02); }
+}
+
+.animate-soft-pulse {
+  animation: softPulse 2.5s infinite ease-in-out;
+}
